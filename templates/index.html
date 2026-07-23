@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UOS Hostel Assistant</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<div class="app">
+
+  <!-- ============ SIDEBAR ============ -->
+  <aside class="sidebar">
+    <div class="seal">
+      <div class="seal-ring">
+        <svg viewBox="0 0 100 100" class="seal-svg">
+          <path id="seal-arc-top" d="M 12,50 A 38,38 0 1 1 88,50" fill="none"/>
+          <path id="seal-arc-bottom" d="M 88,50 A 38,38 0 1 1 12,50" fill="none"/>
+          <text font-size="6.3"><textPath href="#seal-arc-top" startOffset="50%" text-anchor="middle">UNIVERSITY&#8202;OF&#8202;SARGODHA</textPath></text>
+          <text font-size="6.3"><textPath href="#seal-arc-bottom" startOffset="50%" text-anchor="middle">HOSTEL&#8202;DESK&#8202;·&#8202;EST.&#8202;RECORDS</textPath></text>
+        </svg>
+        <span class="seal-center">UOS</span>
+      </div>
+    </div>
+
+    <h1 class="brand-title">Hostel<br>Assistant</h1>
+    <p class="brand-sub">Answers drawn from the official UOS Hostel Handbook — fees, facilities, rules &amp; applications.</p>
+
+    <div class="status-row">
+      <span class="status-dot"></span>
+      <span>Knowledge base loaded · {{ doc_count }} indexed passages</span>
+    </div>
+
+    <div class="divider"></div>
+
+    <p class="section-label">Quick lookups</p>
+    <div class="chip-list" id="chip-list">
+      <button class="chip" data-q="What documents are required to apply for a hostel seat?">Application documents</button>
+      <button class="chip" data-q="What is the hostel fee and mess charges?">Fee &amp; mess charges</button>
+      <button class="chip" data-q="What facilities are available in the hostels?">Facilities</button>
+      <button class="chip" data-q="Is warm water available in hostels during winter?">Warm water in winter</button>
+      <button class="chip" data-q="What is the attendance and curfew time?">Attendance &amp; timing</button>
+      <button class="chip" data-q="Can I bring my own air cooler or other appliances?">Bringing appliances</button>
+    </div>
+
+    <div class="sidebar-footer">
+      <button id="reset-btn" class="reset-btn">
+       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg>
+       New conversation
+      </button>
+      <p class="model-tag">Model: {{ chat_model }}</p>
+      <p class="credit-line">Made by <span>Munib Ahmad</span></p>
+</div>
+  </aside>
+
+  <!-- ============ MAIN CHAT ============ -->
+  <main class="chat-main">
+
+    <header class="chat-header">
+      <div>
+        <p class="eyebrow">Student Information Desk</p>
+        <h2>Ask about hostel life at UOS</h2>
+      </div>
+    </header>
+
+    <div class="messages" id="messages">
+      <div class="msg assistant">
+        <div class="avatar">UOS</div>
+        <div class="bubble">
+          <p>Assalam-o-Alaikum! I'm the hostel assistant — ask me anything about hostel fees, facilities, rules, or the application process, and I'll answer from the official handbook.</p>
+        </div>
+      </div>
+    </div>
+
+    <form class="composer" id="composer" autocomplete="off">
+      <textarea
+        id="input"
+        placeholder="Ask about hostel fees, rooms, mess, rules…"
+        rows="1"
+        maxlength="2000"
+      ></textarea>
+      <button type="submit" id="send-btn" aria-label="Send message">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+      </button>
+    </form>
+    <p class="disclaimer">Answers are generated from the hostel handbook and may be incomplete — confirm fees and official details with the hostel office.</p>
+  </main>
+</div>
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
