@@ -366,7 +366,8 @@ st.markdown(
 
 html, body, .stApp { background: var(--paper) !important; color: var(--text); font-family: var(--font-body); }
 #MainMenu, footer { visibility: hidden; }
-.block-container { padding-top: 2rem; max-width: 900px; }
+header[data-testid="stHeader"] { background: transparent !important; height: 3rem; }
+.block-container { padding-top: 4.5rem; max-width: 900px; }
 
 /* ---- Sidebar ---- */
 section[data-testid="stSidebar"] {
