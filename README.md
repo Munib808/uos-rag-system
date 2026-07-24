@@ -1,4 +1,4 @@
-# UOS Hostel Assistant — Flask App
+# UOS Hostel Assistant — Flask App and Streamlit App
 
 A Flask front-end for your Parent-Document RAG pipeline (Chroma + Mistral),
 with a proper prompt template, multi-turn memory, and a chat UI that shows
@@ -8,7 +8,8 @@ the retrieved source passages.
 
 ```
 uos_rag_app/
-├── app.py                 # Flask backend + RAG chain + prompt template
+├── flaskapp.py             # Flask backend + RAG chain + prompt template
+├── app.py                  # Streamlit app          
 ├── requirements.txt
 ├── .env.example            # copy to .env and fill in your key
 ├── templates/
